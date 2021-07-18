@@ -1,0 +1,207 @@
+@import './reset';
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@mixin web {
+    @media (min-width: $web) {
+        @content;
+    }
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $lightGreyBlue;
+    padding: 10px;
+
+
+    .container {
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 12px;
+        overflow: hidden;
+        background-color: #fff;
+        @include web {
+            overflow: visible;
+            width: 950px;
+           display: grid;
+           grid-template-columns: 400px auto;
+        }
+
+        .image{ 
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            width: 100%;
+            height: 200px;
+            @include web {
+                width: 400px;
+                height: 320px;
+                
+            }
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px 30px 0px;
+            position: relative;
+            @include web {
+                display: flex;
+                justify-content: start;
+                flex-direction: column;
+                padding: 50px 50px 0px;
+            }
+
+            h3 {
+                color: $darkGreyBlue;
+                font-family: 'Manrope', sans-serif;
+                font-weight: 700;
+                line-height: 1.4em;
+                margin-bottom: 20px;
+                margin-right: 100px;
+            }
+
+            p {
+                font-family: 'Manrope', sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 1.5em;
+                color: $darkBlue;
+            }
+
+            .footer {
+                
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                // position: relative;
+                bottom: -20px;
+                margin-top: 30px;
+                padding: 0 0 20px;
+                left: 0px;
+                .profile-image{
+                    width:50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-right: 20px;
+                    box-shadow: 0px 0px 4px #ccc;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+    
+                .name {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    font-family: 'Manrope', sans-serif;
+                    font-weight: 700;
+                    font-size: 1em;
+                    color: $darkGreyBlue;
+                    margin-right: auto;
+                    
+                    span {
+                        color: $darkBlue;
+                        font-weight: 400;
+                        line-height: 1.5em;
+                    }
+                }
+    
+                .social {
+                    display: none;
+                    align-items: center;
+                    position: absolute;
+                    padding: 18px 30px;
+                    left: 0px;
+                    bottom: 0px;
+                    width: 100%;
+                    background-color: $darkGreyBlue;
+                    z-index: 1;
+                    text-transform: uppercase;
+                    color: $darkBlue;
+                    font-size: 16px;
+                    letter-spacing: 0.3em;
+                    @include web {
+                        position: absolute;
+                        width: 240px;
+                        height: 50px;
+                        padding: 18px;
+                        border-radius: 8px;
+                        left: 355px;
+                        bottom: 100px;
+                        z-index: 2;
+                        
+                        &::after {
+                            content: "";
+                            width: 30px;
+                            height: 30px;
+                            position: absolute;
+                            transform: rotate(45deg);
+                            background-color: $darkGreyBlue;
+                            left: 45%;
+                            bottom: -10px;
+                            
+
+                        }
+                    }
+    
+                    .icon {
+                        display: grid;
+                        place-items: center;
+                        margin-left: 20px;
+                        z-index: 2;
+                    }
+    
+                    .share {
+                        background-color: $darkBlue;
+                        margin-left: 50px;
+                        @include web {
+                            display: none;
+                        }
+                        svg {
+                            fill: #fff;
+                        }
+                    }
+                    &.active {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+    
+                
+    
+    
+                .share {
+                    width: 40px;
+                    height: 40px;
+                    display: grid;
+                    place-items: center;
+                    border-radius: 50%;
+                    background-color: $lightGreyBlue;
+                    position: relative;
+                    
+                }
+            }
+        }
+        
+    }
+
+    .attribution {
+        margin-top: 20px;
+        text-align: center;
+
+        a{
+            color: $darkGreyBlue;
+            font-weight: 600;
+        }
+    }
+}
